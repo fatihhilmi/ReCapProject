@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,20 +29,24 @@ namespace Business.Concrete
                 Console.WriteLine("Araç eklenemedi");
             }
         }
-
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
         }
 
-        public List<Car> GetCarsByBrandId(int id)
+        public List<Car> GetByBrandId(int Id)
         {
-            return _carDal.GetAll(p=>p.BrandId==id);
+            return _carDal.GetAll(p => p.BrandId == Id);
         }
 
-        public List<Car> GetCarsByColorId(int id)
+        public List<Car> GetByColorId(int Id)
         {
-            return _carDal.GetAll(p=>p.ColorId==id);
+            return _carDal.GetAll(c => c.ColorId == Id);
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
         }
     }
 }
