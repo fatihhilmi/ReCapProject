@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -18,35 +20,36 @@ namespace Business.Concrete
             this._carDal = iCarDal;
         }
 
-        public void Add(Car car)
+        public IResult Add(Car car)
         {
             if (car.Description.Length > 2 && car.DailyPrice> 0)
             {
                 _carDal.Add(car);
+                return new SuccessResult(Messages.ProductAdded);
             }
             else
             {
-                Console.WriteLine("Araç eklenemedi");
+                return new ErrorResult(Messages.ProductAdded);
             }
         }
-        public List<Car> GetAll()
+        public IDataResult<List<Car>> GetAll()
         {
-            return _carDal.GetAll();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.ProductListed);
         }
 
-        public List<Car> GetByBrandId(int Id)
+        public IDataResult<Car> GetByBrandId(int brandId)
         {
-            return _carDal.GetAll(p => p.BrandId == Id);
+            return new SuccessDataResult<Car>(_carDal.Get(p => p.BrandId == brandId));
         }
 
-        public List<Car> GetByColorId(int Id)
+        public IDataResult<Car> GetByColorId(int colorId)
         {
-            return _carDal.GetAll(c => c.ColorId == Id);
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.ColorId == colorId));
         }
 
-        public List<CarDetailDto> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            return _carDal.GetCarDetails();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());   
         }
     }
 }
