@@ -11,7 +11,7 @@ namespace Core.Utilities.Results
             Success = success;
         }
 
-        public Result(bool success,string message) : this(success)
+        public Result(string message,bool success) : this(success)
         {
             //Success = success;
             Message = message;

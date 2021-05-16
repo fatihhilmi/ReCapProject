@@ -11,11 +11,11 @@ namespace Core.Utilities.Results
             
         }
 
-        public SuccessDataResult(T data, string message) : base(data, true, message)
+        public SuccessDataResult(T data, string message) : base(data, message, true)
         {
 
         }
-        public SuccessDataResult(string message) : base(default, true, message)
+        public SuccessDataResult(string message) : base(default, message, true)
         {
 
         }
