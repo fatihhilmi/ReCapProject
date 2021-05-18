@@ -12,5 +12,11 @@ namespace Business.Constants
         public static string ProductListed = "Ürün Listelendi";
         public static string UserAdded = "Kullanıcı Eklendi";
         public static string UsersListed = "Kullanıcılar Listelendi";
+        public static string CustomerAdded = "Müşteriler Eklendi";
+        public static string CustomerListed = "Müşteriler Listelendi";
+        public static string RentalAdded = "Kiralık Araç Eklendi";
+        public static string RentalAddedError = "Kiralık Araç Eklenemedi";
+
+
     }
 }

@@ -18,9 +18,28 @@ namespace ConsoleUI
 
             //ColorTest();
 
-            UserTest();
+            //UserTest();
+
+            RentalTest();
+
+            
 
         }
+
+        private static void RentalTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            rentalManager.Add(new Rental
+            {
+                CarId = 1,
+                CustomerId = 2,
+                //RentalId = 1,
+                RentDate = "",
+                ReturnDate = ""
+            });
+            
+        }
+
         private static void UserTest()
         {
             UserManager userManager = new UserManager(new EfUserDal());
@@ -31,7 +50,7 @@ namespace ConsoleUI
                 Email="fatihhilmi@gmail.com",
                 Password="sfr"  
             });
-            Console.WriteLine(Messages.UserAdded);
+            
 
             
         }
