@@ -32,6 +32,12 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.ProductAdded);
             }
         }
+
+        public IResult Delete(Car car)
+        {
+            throw new NotImplementedException();
+        }
+
         public IDataResult<List<Car>> GetAll()
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.ProductListed);
@@ -50,6 +56,11 @@ namespace Business.Concrete
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());   
+        }
+
+        public IResult Update(Car car)
+        {
+            throw new NotImplementedException();
         }
     }
 }
